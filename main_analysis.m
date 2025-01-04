@@ -75,7 +75,7 @@ H=H_arr(:,:,D_best(1));
 %%% For example, hierarchical clustering
 eva = evalclusters(W,'linkage','gap','KList',1:10, 'SearchMethod','firstMaxSE') % for choosing the optimal number of clusters N
 %plot(eva)
-tree = linkage(W,'average');
+tree = linkage(W,'average'); %% you can try using different methods instead of 'average', e.g. 'ward', 'weighted', or 'complete', depending on your purpose
 figure; [~,~,op_nmf]=dendrogram(tree, size(your_data,1));
 nmf_weight=W(op_nmf,:);
 figure; heatmap(nmf_weight','colormap',hot(1000),'gridvisible','off','ColorLimits',[0 1])
